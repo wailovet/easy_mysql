@@ -12,6 +12,6 @@ node_js:
 services:
   - mysql
 before_script:
-  - mysql -e 'create database mytest;'
+  - mysql -e 'create database IF NOT EXISTS mytest;'
   - mysql -e 'CREATE TABLE  `mytest`.`test` (`id` INT NOT NULL AUTO_INCREMENT ,`content` VARCHAR( 128 ) NOT NULL , PRIMARY KEY (`id`));'
 
