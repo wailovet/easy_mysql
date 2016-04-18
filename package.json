@@ -21,5 +21,8 @@
   "homepage": "https://github.com/wailovet/easy_mysql#readme",
   "dependencies": {
     "mysql": "2.9.0"
+  },
+  "scripts": {
+    "test": "test/test.js"
   }
 }
