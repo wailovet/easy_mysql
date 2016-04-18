@@ -18,11 +18,6 @@ em.select(function (data) {
         throw "select error";
     }
 });
-em.order({"id":"desc"}).select(function (data) {
-    if (data[0]['id'] < 2) {
-        throw "order error";
-    }
-});
 em.page(1, 1).select(function (data) {
     if (data.length != 1) {
         throw "page error";
