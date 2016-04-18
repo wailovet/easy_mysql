@@ -8,6 +8,7 @@ em = new easy_mysql("test");
 it("add", function () {
 
     em.add({"content":"testtest"},function(data){
+        throw "s";
         if(data > 0){
 
         }
