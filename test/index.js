@@ -4,7 +4,7 @@ easy_mysql.config({
     "user": "root"
 });
 em = new easy_mysql("test");
-
+em.debug(true);
 
 em.add({"content": "testtest"}, function (data) {
     if (!data || data <= 0) {
