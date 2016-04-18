@@ -15,16 +15,16 @@ em.add({"content": "testtest"}, function (data) {
 
 em.select(function (data) {
     if (data[0]['content'] != 'testtest') {
-        throw "select";
+        throw "select error";
     }
 });
-em.order("id").select(function (data) {
+em.order({"id":"desc"}).select(function (data) {
     if (data[0]['id'] < 2) {
-        throw "order";
+        throw "order error";
     }
 });
 em.page(1, 1).select(function (data) {
     if (data.length != 1) {
-        throw "page";
+        throw "page error";
     }
 });
