@@ -14,3 +14,12 @@ it("add", function () {
         }
     });
 });
+
+it("select", function () {
+
+    em.select(function(data){
+        if(data > 0){
+
+        }
+    });
+});
