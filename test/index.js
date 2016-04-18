@@ -6,20 +6,24 @@ easy_mysql.config({
 em = new easy_mysql("test");
 em.debug(true);
 
-em.add({"content": "testtest"}, function (data) {
+em.add({"content": "content"}, function (data) {
     if (!data || data <= 0) {
-        throw "add";
+        console.log(data)
+        throw "add error";
     }
+    em.field(["id","content"]).where({"id":data}).find(function(_data){
+        if(_data['content'] != 'content'){
+            console.log(_data)
+            throw "add or find error";
+        }
+        em.where({"id":1}).save({"content": "content_test"},function(){
+            em.field(["id","content"]).where({"id":data}).find(function(__data){
+                if(__data['content'] != 'content_test'){
+                    console.log(__data)
+                    throw "save or find error";
+                }
+            });
+        });
+    });
 });
 
-
-em.select(function (data) {
-    if (data[0]['content'] != 'testtest') {
-        throw "select error";
-    }
-});
-em.page(1, 1).select(function (data) {
-    if (data.length != 1) {
-        throw "page error";
-    }
-});
