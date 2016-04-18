@@ -18,3 +18,13 @@ em.select(function (data) {
         throw "select";
     }
 });
+em.order("id").select(function (data) {
+    if (data[0]['id'] < 2) {
+        throw "order";
+    }
+});
+em.page(1, 1).select(function (data) {
+    if (data.length != 1) {
+        throw "page";
+    }
+});
