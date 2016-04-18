@@ -40,9 +40,9 @@ em.add({key: value}, function (id) {
     
 });
 ```
-`key` 字段名
-`value` 数据
-`id` 添加成功的主键ID
+* `key`: 字段名
+* `value`: 数据
+* `id`: 添加成功的主键ID
 
 ## 批量添加数据
 ```js
@@ -58,7 +58,16 @@ em.select(function (data) {
     
 });
 ```
-`data` 数据 `[{key:value},...]`
++ `data`: 数据 `[{key:value,......},......]`
+
+
+## 读取单条数据
+```js
+em.find(function (data) {
+    
+});
+```
++ `data`: 数据 `{key:value,......}`
 
 
 
