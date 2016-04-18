@@ -3,7 +3,7 @@ easy_mysql.config({
     "database": "mytest",
     "user": "root"
 });
-em = new easy_mysql("mytest");
+em = new easy_mysql("test");
 
 
 em.add({"content": "testtest"}, function (data) {
