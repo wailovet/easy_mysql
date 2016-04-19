@@ -34,6 +34,12 @@ var em = new easy_mysql(table_name);
 * `table_name`: 表名
 
 
+## 原生Mysql语句
+```js
+em.query("select * from `test`");
+```
+[参数详见] (https://github.com/felixge/node-mysql)
+
 ## 添加数据
 ```js
 em.add({key: value}, function (id) {
