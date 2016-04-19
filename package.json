@@ -21,6 +21,9 @@
   "bugs": {
     "url": "https://github.com/wailovet/easy_mysql/issues"
   },
+  "engines": {
+    "node": ">= 0.10.0"
+  },
   "homepage": "https://github.com/wailovet/easy_mysql#readme",
   "dependencies": {
     "mysql": "2.9.0"
