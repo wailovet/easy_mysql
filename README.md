@@ -2,9 +2,9 @@
 
 [![NPM Version][npm-image]][npm-url]
 [![Node.js Version][node-version-image]][node-version-url]
-[![Linux Build][travis-image]][travis-url]
+[![Build][travis-image]][travis-url]
 
-## Install
+## 安装
 ```sh
 $ npm install easy_mysql
 ```
@@ -17,7 +17,7 @@ easy_mysql.config({
     "user": "root"
 });
 ```
-## 可选配置
+
 * `host`: 要连接到数据库的主机名 (默认:`localhost`)
 * `port`: 端口号 (默认: `3306`)
 * `user`: MySQL 用户名
@@ -31,7 +31,7 @@ easy_mysql.config({
 ```js
 var em = new easy_mysql(table_name);
 ```
-`table_name` 表名
+* `table_name`: 表名
 
 
 ## 添加数据
@@ -69,8 +69,78 @@ em.find(function (data) {
 ```
 + `data`: 数据 `{key:value,......}`
 
+## 条件
+不支持多次调用
+```js
+em.where("`id` = 1").find();
+em.where({"id":1}).find();
+em.where({"id":["<",2]}).find();
+```
+
+## 删除数据
+```js
+em.where("`id` = 1").delete();
+```
+
+## 更新数据
+```js
+em.where("`id` = 1").save(function(rows){
+    
+});
+```
++ `rows`: 影响行数
+
+## 分页查询
+查询第2页，每页数据十条
+```js
+em.page(2,10).select();
+```
+
+## 排序
+```js
+em.order("`id` desc").select();
+em.order({"id":"desc"}).select();
+em.order(["id",{"pid":"desc"}]).select();
+em.order(["id",["pid","desc"]]).select();
+```
 
 
+## 计数
+```js
+em.count(function(i){
+    
+});
+```
+
+## 最大值/最小值
+```js
+var field = "id";
+em.max(field,function(i){
+    
+});
+em.min(field,function(i){
+    
+});
+```
++ `field`: 字段名
+
+## 平均值
+```js
+var field = "id";
+em.avg(field,function(i){
+    
+});
+```
++ `field`: 字段名
+
+## 求和
+```js
+var field = "id";
+em.sum(field,function(i){
+    
+});
+```
++ `field`: 字段名
 
 
 
